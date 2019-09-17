@@ -3,6 +3,7 @@
     package="br.com.caelum.twittelum">
 
     <application
+        android:name=".application.TwittelumApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -18,10 +19,19 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".TweetActivity" />
 
-        </activity>
+        <provider
+            android:authorities="br.com.caelum.fotos"
+            android:name="androidx.core.content.FileProvider"
+            android:grantUriPermissions="true"
+            android:exported="false">
 
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/files_paths"/>
+
+        </provider>
     </application>
 
 </manifest>
